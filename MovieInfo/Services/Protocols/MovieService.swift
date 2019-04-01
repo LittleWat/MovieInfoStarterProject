@@ -40,7 +40,7 @@ public enum Endpoint: String, CustomStringConvertible, CaseIterable {
         default: return nil
         }
     }
-    
+
     
     public init?(description: String) {
         guard let first = Endpoint.allCases.first(where: { $0.description == description }) else {

@@ -11,10 +11,14 @@ import Foundation
 public class MovieStore: MovieService {
     
     public static let shared = MovieStore()
-    private init() {}
-    private let apiKey = "XXXXXXXXXXXXX"
+    private var apiKey: String {
+        return KeyManager().getValue(key: "TMDbAPIKey") as! String
+    }
+    
     private let baseAPIURL = "https://api.themoviedb.org/3"
     private let urlSession = URLSession.shared
+    
+    private init() {}
     
     private let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
